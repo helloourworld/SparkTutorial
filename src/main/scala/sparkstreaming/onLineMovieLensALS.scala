@@ -2,6 +2,9 @@ package main.scala.sparkstreaming
 
 /**
   * Created by hadoop on 2016/11/23.
+  * 30 30 30 movie h1,h2,h3
+  * first run movieKafka.py for sending user's ratings in
+  *
   */
 
 import org.apache.spark.mllib.recommendation.{ALS, MatrixFactorizationModel, Rating}
@@ -21,10 +24,10 @@ import org.apache.spark.streaming.kafka010.ConsumerStrategies.Subscribe
 
 object onLineMovieLensALS {
   def main(args: Array[String]): Unit = {
-//    if (args.length != 1) {
-//      System.err.println("Usage: <watchDir>")
-//      System.exit(1)
-//    }
+    if (args.length != 5) {
+      System.err.println("Usage: batchTime, windowTime, slideTime, topic, brokers")
+      System.exit(1)
+    }
     val Array(batchTime, windowTime, slideTime, topic, brokers) = args
     val batchDuration = Seconds(batchTime.toInt)
     val windowDuration = Seconds(windowTime.toInt)

@@ -8,7 +8,7 @@ package main.scala.sparkbase
 import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.sql.SparkSession
 
-object LBreeze {
+object Breeze {
   def main(args: Array[String]): Unit = {
     val conf = new SparkConf().setAppName("Breeze").setMaster("local[2]")
     val sc = new SparkContext(conf)

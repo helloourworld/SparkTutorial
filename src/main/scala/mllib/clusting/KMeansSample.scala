@@ -70,7 +70,7 @@ object KMeansSample {
         line + " " + prediction
     }.saveAsTextFile("/data/mllib/result2")
 
-    //3计算测试误差
+    //3计算测试误差Evaluate clustering by computing Within Set Sum of Squared Errors
     val cost =model.computeCost(testdata)
     println(s"Total cost = $cost.")
     sc.stop()
